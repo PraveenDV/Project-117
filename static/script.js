@@ -48,7 +48,8 @@ $(document).ready(function(){
                 $("#emoji").attr('src', emotion_url)
                 $("#emoji").css("display", "block")
                 //  show them
-
+                $("#sentiment").show()
+                $("#emoji").show()
             },
 
             //  if any error, run this function
