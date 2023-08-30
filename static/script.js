@@ -26,7 +26,7 @@ $(document).ready(function(){
 
             //  type of web request
             type : 'POST',
-            url:"/review",
+            url:'/review',
             //  Data to be sent in JSON format
             data : JSON.stringify(),
 
@@ -40,13 +40,12 @@ $(document).ready(function(){
             success : function(result){
 
                 // extract prediction and emoticon url from result
-                predicted_emotion=result.data.predicted_emotion
-                emotion_url=result.data.predicted_emotion_img_url
+                predicted_emotion=result.prediction
+                emotion_url=result.url
                 //  update the DOM elements
-                $("#sentiment").html(predicted_emotion)
-                $("#sentiment").css("display", "block")
+                $('#sentiment').text(prediction)
                 $("#emoji").attr('src', emotion_url)
-                $("#emoji").css("display", "block")
+
                 //  show them
                 $("#sentiment").show()
                 $("#emoji").show()
@@ -55,7 +54,7 @@ $(document).ready(function(){
             //  if any error, run this function
             error : function(result){
 
-                console.log(result.responsesJSON.message)
+                console.log(result.message)
             }
         })
 
